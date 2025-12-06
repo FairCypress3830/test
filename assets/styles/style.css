@@ -1322,11 +1322,20 @@ textarea:focus {
 
 /* --- Mobile (Landscape) --- */
 @media (max-width: 768px) and (orientation: landscape) {
+    /* Allow Hero Section to scroll if content is too tall */
+    .hero-section {
+        height: auto;
+        min-height: calc(100vh - 70px);
+        overflow: visible;
+        padding-bottom: 2rem;
+    }
+
     /* Show Background Image with Reduced Opacity */
     .hero-bg-image {
         display: flex;
         width: 40%;
         opacity: 0.5;
+        height: 100%; /* Ensure bg stretches */
     }
     
     /* Adjust Hero Content Width */
@@ -1337,6 +1346,7 @@ textarea:focus {
     
     .cta-group {
         justify-content: flex-start;
+        margin-bottom: 1rem;
     }
 }
 
