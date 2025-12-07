@@ -1226,8 +1226,23 @@ textarea:focus {
         display: block;
         padding: 1rem 2rem;
         text-align: left;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--border-color);
         background-color: transparent;
+    }
+
+    .nav-links li.theme-switch {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; 
+        padding: 1rem 2rem;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+        cursor: pointer;
+    }
+
+    .nav-links li.theme-switch #theme-toggle {
+        font-size: 1.5rem; 
+        width: 100%;
     }
     
     .nav-links li:not(.resume-item) a:hover {
