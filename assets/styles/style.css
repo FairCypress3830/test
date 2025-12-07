@@ -179,12 +179,13 @@ footer p {
 
 .hero-section {
     position: relative;
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 55px);
     width: 100%;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
     background-color: var(--bg-color);
+    padding: 3rem 0;
 }
 
 /* Hero Background Image (Right Side) */
@@ -1441,4 +1442,5 @@ textarea:focus {
     .contact-grid {
         max-width: 1000px;
     }
+
 }
