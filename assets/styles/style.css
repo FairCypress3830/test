@@ -180,6 +180,7 @@ footer p {
 .hero-section {
     position: relative;
     min-height: calc(100vh - 55px);
+    height: auto;
     width: 100%;
     display: flex;
     align-items: center;
@@ -1444,3 +1445,4 @@ textarea:focus {
     }
 
 }
+
