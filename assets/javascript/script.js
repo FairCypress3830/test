@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     
-    // 1. Check if user already has a preference saved in LocalStorage
+    // Check if user already has a preference saved in LocalStorage
     const currentTheme = localStorage.getItem('theme');
     
     // If saved theme is 'dark', apply it immediately
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggle.classList.add('fa-sun'); // Change icon to sun
     }
     
-    // 2. Add Event Listener for Click
+    // Add Event Listener for Click
     themeToggle.addEventListener('click', () => {
         // Toggle the class on body
         body.classList.toggle('dark-mode');
@@ -47,10 +47,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ==================== SCROLL ANIMATIONS ====================
+
+    // Elements to Animate
+    const hiddenElements = document.querySelectorAll(
+        '.project-card, .skill-card, .competency-card, .contact-card, .section-header, .hero-content, .about-img, .about-text'
+    );
+
+    hiddenElements.forEach((el) => el.classList.add('reveal'));
+
+    // This detects when elements enter the viewport (screen)
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Class for fade in and float up
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    hiddenElements.forEach((el) => observer.observe(el));
+
     // ==================== FUTURE ENHANCEMENTS ====================
     // Space for additional JavaScript functionality:
     // - Smooth scrolling for anchor links
     // - Form validation
-    // - Animation on scroll
     // - etc.
 });
