@@ -1469,3 +1469,41 @@ textarea:focus {
         max-width: 1000px;
     }
 }
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Page Load Animation */
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    animation: pageLoad 0.8s ease-out forwards;
+}
+
+/* Scroll Reveal Animation */
+
+/* Invisible State */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+/* The active state */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Makes cards appear one by one */
+.reveal.active:nth-child(2) { transition-delay: 0.1s; }
+.reveal.active:nth-child(3) { transition-delay: 0.2s; }
+.reveal.active:nth-child(4) { transition-delay: 0.3s; }
