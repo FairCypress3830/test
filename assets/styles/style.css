@@ -39,6 +39,43 @@
     --transition: all 0.3s ease;
 }
 
+/* --- DARK MODE VARIABLES --- */
+body.dark-mode {
+    --bg-color: #121212;        /* Very dark gray (almost black) */
+    --bg-light: #1e1e1e;
+    --card-bg: #1e1e1e;
+    --white: #121212;
+    
+    --text-color: #e0e0e0;      /* Light gray text */
+    --text-light: #cccccc;
+    --text-muted: #a0a0a0;
+    
+    --border-color: #333333;    /* Dark borders */
+}
+
+/* --- THEME TOGGLE BUTTON STYLES --- */
+.theme-switch {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+#theme-toggle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+body.dark-mode header {
+    border-bottom: 1px solid #333;
+}
+
 /* --- CSS RESET & BASE STYLES --- */
 * {
     margin: 0;
@@ -69,7 +106,7 @@ header {
 nav {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.2rem 2rem;
+    padding: 0.8rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -161,11 +198,11 @@ p {
 
 /* --- FOOTER STYLES --- */
 footer { 
-    background-color: #f8f9fa; 
+    background-color: var(--bg-light); 
     text-align: center; 
     padding: 2rem; 
     margin-top: auto; 
-    border-top: 1px solid #eee; 
+    border-top: 1px solid var(--border-color); 
 }
 
 footer p {
@@ -196,7 +233,7 @@ footer p {
     right: 0;
     width: 50%;
     height: 100%;
-    background-color: var(--bg-light);
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -220,7 +257,7 @@ footer p {
     left: 0;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, var(--bg-color) 80%, transparent 100%);
+    background: linear-gradient(to right, var(--bg-color) 10%, transparent 100%);
     z-index: 2;
     pointer-events: none;
 }
@@ -401,36 +438,6 @@ footer p {
     bottom: 0;
     background: linear-gradient(180deg, transparent 60%, rgba(0, 68, 204, 0.1) 100%);
     pointer-events: none;
-}
-
-/* Experience Badge */
-.experience-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 68, 204, 0.3);
-    z-index: 10;
-}
-
-.exp-number {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.exp-text {
-    display: block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 0.25rem;
-    opacity: 0.9;
 }
 
 /* --- About Text Content --- */
@@ -1082,7 +1089,15 @@ footer p {
     border-radius: 10px;
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-light); 
+    color: var(--text-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Makes sure that the placeholder text (the gray hint text) is visible in both modes */
+::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
 }
 
 /* Form Input Focus State */
@@ -1169,10 +1184,6 @@ textarea:focus {
         margin: 0 auto;
     }
     
-    .experience-badge {
-        right: 0;
-    }
-    
     /* Contact Page - Single Column */
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1191,7 +1202,7 @@ textarea:focus {
         display: none; 
         flex-direction: column; 
         position: absolute; 
-        top: 70px; 
+        top: 55px; 
         left: 0; 
         width: 100%; 
         background-color: var(--white); 
@@ -1389,17 +1400,6 @@ textarea:focus {
         font-size: 2rem;
     }
     
-    /* Smaller Experience Badge */
-    .experience-badge {
-        padding: 1rem;
-        bottom: -15px;
-        right: -10px;
-    }
-    
-    .exp-number {
-        font-size: 2rem;
-    }
-    
     /* Smaller Competency Cards */
     .competency-card {
         padding: 1.5rem;
@@ -1453,7 +1453,4 @@ textarea:focus {
     .contact-grid {
         max-width: 1000px;
     }
-
 }
-
-

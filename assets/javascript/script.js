@@ -9,27 +9,48 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // ==================== MOBILE NAVIGATION TOGGLE ====================
-    // Handles the hamburger menu functionality for mobile devices
-    // When clicked, toggles the visibility of the navigation links
-    
-    // Select the hamburger menu button
     const hamburger = document.querySelector('.hamburger');
-    
-    // Select the navigation links container
     const navLinks = document.querySelector('.nav-links');
 
-    // Add click event listener to hamburger menu
-    // Toggles the 'active' class on nav-links to show/hide menu
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
     });
+
+    // ==================== DARK MODE TOGGLE ====================
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
     
+    // 1. Check if user already has a preference saved in LocalStorage
+    const currentTheme = localStorage.getItem('theme');
+    
+    // If saved theme is 'dark', apply it immediately
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.classList.remove('fa-moon');
+        themeToggle.classList.add('fa-sun'); // Change icon to sun
+    }
+    
+    // 2. Add Event Listener for Click
+    themeToggle.addEventListener('click', () => {
+        // Toggle the class on body
+        body.classList.toggle('dark-mode');
+        
+        // Switch the icon class (Moon <-> Sun)
+        if (body.classList.contains('dark-mode')) {
+            themeToggle.classList.remove('fa-moon');
+            themeToggle.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark'); // Save preference
+        } else {
+            themeToggle.classList.remove('fa-sun');
+            themeToggle.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light'); // Save preference
+        }
+    });
 
     // ==================== FUTURE ENHANCEMENTS ====================
     // Space for additional JavaScript functionality:
     // - Smooth scrolling for anchor links
     // - Form validation
     // - Animation on scroll
-    // - Dark mode toggle
     // - etc.
 });
