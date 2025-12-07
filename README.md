@@ -2,7 +2,7 @@
 
 A responsive personal portfolio website showcasing my biography, technical skills, and projects. This website serves as my digital resume and demonstrates my proficiency in modern web development technologies.
 
-![Portfolio Preview](assets/images/portfolio-project.pn)
+![Portfolio Preview](assets/images/portfolio-project.png)
 
 ## 🌐 Live Demo
 
@@ -39,4 +39,5 @@ This project uses **Pure CSS** (no frameworks) with the following features:
 - **CSS Grid** - Used for skills grid, projects gallery, about section, and contact cards
 - **CSS Variables** - Custom properties defined in `:root` for consistent theming
 - **Media Queries** - Responsive breakpoints for mobile, tablet, and desktop views
+
 
